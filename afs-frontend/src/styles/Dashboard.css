@@ -1,0 +1,29 @@
+.side {
+  padding-left: 0;
+}
+
+.order {
+  margin-right: 0;
+  padding-top: 3rem;
+  margin-top: 3rem;
+}
+
+.centered {
+  background: gray;
+  color: white;
+}
+
+.centered a {
+  color: white;
+}
+
+#addProduce .produce-form {
+  box-shadow: 3px 3px 10px rgba(30, 31, 30);
+  /* display: flex; */
+  background: none;
+}
+
+#doctor {
+  width: 75%;
+  margin: 15% auto;
+}

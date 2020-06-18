@@ -1,0 +1,83 @@
+.info {
+  background: white;
+  width: 55%;
+  margin: 10% auto;
+  padding: 4%;
+  font-size: 1rem;
+  -webkit-box-shadow: 6px 9px 22px 3px rgba(176, 170, 132, 0.5);
+  -moz-box-shadow: 6px 9px 22px 3px rgba(176, 170, 132, 0.5);
+  box-shadow: 6px 9px 22px 3px rgba(176, 170, 132, 0.5);
+}
+
+@media (min-width: 330px) and (max-width: 700px) {
+  .info {
+    width: 90%;
+    margin: 20% auto;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  .info {
+    width: 80%;
+    margin: 10% auto;
+  }
+}
+
+.form-control {
+  padding: 5%;
+  border: none;
+  border-bottom: 1px solid grey;
+  background: white;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 0.1px solid grey;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem grey;
+}
+
+#error {
+  color: red;
+}
+
+.button {
+  margin-bottom: 1rem;
+}
+
+.btn {
+  color: grey;
+  border-color: grey;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: grey;
+  border-color: grey;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem grey;
+}
+
+.btn:active {
+  color: #fff;
+  background-color: grey;
+  border-color: grey;
+}
+
+.info h2 {
+  margin: 0;
+  margin-bottom: 1.7rem;
+}
+
+.custom-select {
+  border: 1px solid grey;
+}
+
+.custom-select:focus {
+  border: 0.1px solid grey;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem grey;
+}

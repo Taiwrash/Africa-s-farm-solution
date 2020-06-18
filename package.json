@@ -1,0 +1,37 @@
+{
+  "name": "afs-backend",
+  "version": "1.0.0",
+  "description": "An app at buildforsdg2020",
+  "main": "app.js",
+  "scripts": {
+    "test": "npm run test",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix afs-frontend && npm run build --prefix afs-frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuildForSDG/Team-044-Product.git"
+  },
+  "keywords": [
+    "Africa's",
+    "Farm",
+    "Solution"
+  ],
+  "author": "Team 044: Mudasiru Rasheed & Jimoh Oluwatosin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuildForSDG/Team-044-Product/issues"
+  },
+  "homepage": "https://github.com/BuildForSDG/Team-044-Product#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bcrypt": "^4.0.1",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.5.8",
+    "mongoose": "^5.9.16",
+    "mongoose-unique-validator": "^2.0.3",
+    "socket.io": "^2.3.0"
+  }
+}

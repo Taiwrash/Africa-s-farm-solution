@@ -1,0 +1,107 @@
+.center {
+  width: 80%;
+  margin: 10% auto;
+}
+
+.row {
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.card {
+  width: 18rem;
+
+}
+
+.product-loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: white;
+  z-index: 9999;
+}
+
+.button {
+  width: 6rem
+}
+
+.fix {
+  width: 100%;
+}
+
+.load {
+  width: 50%;
+  height: 100%;
+  margin: 5% auto;
+}
+
+.main-wrapper {
+  width: 100%;
+  margin: 10% auto;
+}
+
+.left {
+  display: inline-grid;
+}
+
+/* @media (min-width: 320px) and (max-width: 700px) {
+  .card {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .center {
+    width: 90%;
+    margin: 10% auto;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 1200px) {
+  .card {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  .center {
+    width: 90%;
+    margin: 5% auto;
+  }
+} */
+
+.link {
+  text-align: center;
+}
+
+.btn {
+  color: grey;
+  border-color: grey;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: grey;
+  border-color: grey;
+}
+
+.btn:focus {
+  box-shadow: 0 0 0 0.2rem grey;
+}
+
+.btn:active {
+  color: #fff;
+  background-color: grey;
+  border-color: grey;
+}
+
+.grid {
+  display: flex;
+  justify-content: space-between;
+}
+
+#pr-image {
+  height: 18rem;
+}
+
