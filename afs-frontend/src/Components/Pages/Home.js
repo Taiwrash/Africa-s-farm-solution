@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import CrossServices from '../common/CrossServices';
+import React from "react";
+import { Link } from "react-router-dom";
+import CrossServices from "../common/CrossServices";
 
 const Home = () => (
   <div>
@@ -8,13 +8,11 @@ const Home = () => (
       <div className="hero-container">
         <h3>
           Welcome to
-
-          <strong>Team-044 Product</strong>
-
+          <strong>AFRICA FARM SOLUTION</strong>
         </h3>
 
         <h1>
-          We Connect Farmers, Investors
+          We Connect Farmers, Veterinary doctors
           <br />
           and Consumers around the World
         </h1>
@@ -25,13 +23,7 @@ const Home = () => (
       </div>
     </section>
 
-
-
-
     <CrossServices />
-
-
-
   </div>
 );
 

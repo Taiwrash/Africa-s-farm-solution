@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Services = () => (
   <div>
@@ -30,8 +30,8 @@ const Services = () => (
                 </Link>
               </h4>
               <p className="description">
-                We have set of Farmers that are ready in producing foods and
-                and other natural materials for the promotion of the world
+                We have set of Farmers that are ready in producing foods and and
+                other natural materials for the promotion of the world
               </p>
             </div>
           </div>
@@ -47,8 +47,9 @@ const Services = () => (
                 </Link>
               </h4>
               <p className="description">
-                We have set of investors that are ready to help the less
-                privileges farmers by investing in their various farms
+                We have set of doctors that are ready to help the less
+                privileges farmers by given urgent assistance in their various
+                farms
               </p>
             </div>
           </div>
@@ -65,8 +66,8 @@ const Services = () => (
               </h4>
               <p className="description">
                 We connects both the farmers and the consumer of their farm
-                produce, Worry no more all farm products are available in
-                just a click away
+                produce, Worry no more all farm products are available in just a
+                click away
               </p>
             </div>
           </div>
