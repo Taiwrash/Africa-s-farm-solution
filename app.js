@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const socketIo = require("socket.io");
+const path = require("path");
 
 const port = process.env.PORT || 4000;
 
@@ -19,9 +20,9 @@ dbConnect();
 app.use(cors());
 app.use(bodyParser.json());
 // Routes
-app.use(productRoutes);
-app.use(handleRoutes);
-app.use("/auth", userRoutes);
+app.use("/api", productRoutes);
+app.use("/api", handleRoutes);
+app.use("/api", userRoutes);
 
 // Serving static folder
 if (process.env.NODE_ENV === "production") {
@@ -33,7 +34,6 @@ if (process.env.NODE_ENV === "production") {
     );
   });
 }
-console.log(__dirname);
 // Server Connection
 const server = app.listen(port, () => {
   console.log("Server is listening");

@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import axios from 'axios';
-import dotenv from 'dotenv';
-import Loader from 'react-loader';
-import useLocalState from '../utils/sessionstorage';
+import React, { useState } from "react";
+import axios from "axios";
+import dotenv from "dotenv";
+import Loader from "react-loader";
+import useLocalState from "../utils/sessionstorage";
 
 // import '../styles/Dashboard.css';
-import '../styles/EditProfile.css';
+import "../styles/EditProfile.css";
 
 dotenv.config();
 
@@ -14,26 +14,22 @@ dotenv.config();
 const URL = process.env.REACT_APP_CLOUDINARY_URL;
 const UPLOAD_PRESET = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
 
-
 const EditFarmerProfileForm = () => {
   // session storage
-  const [localState, setLocalState] = useLocalState('user-id');
+  const [localState, setLocalState] = useLocalState("user-id");
   const { userId } = localState;
   const { firstName } = localState;
   const { lastName } = localState;
   const { email } = localState;
 
-  const [image, setImage] = useState('');
-  const [gender, setGender] = useState('');
-  const [genders] = useState([
-    { value: 'Male' },
-    { value: 'Female' },
-  ]);
-  const [dob, setDob] = useState('');
-  const [number, setNumber] = useState('');
-  const [address, setAddress] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
+  const [image, setImage] = useState("");
+  const [gender, setGender] = useState("");
+  const [genders] = useState([{ value: "Male" }, { value: "Female" }]);
+  const [dob, setDob] = useState("");
+  const [number, setNumber] = useState("");
+  const [address, setAddress] = useState("");
+  const [state, setState] = useState("");
+  const [country, setCountry] = useState("");
   const [loaded, setLoaded] = useState(true);
   const data = {
     image,
@@ -55,27 +51,31 @@ const EditFarmerProfileForm = () => {
     // CLOUUDINARY UPLOAD
     setLoaded(false);
     const file = e.target.files[0];
-    console.log(file, '=--');
+    console.log(file, "=--");
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('upload_preset', UPLOAD_PRESET);
+    formData.append("file", file);
+    formData.append("upload_preset", UPLOAD_PRESET);
 
-    axios.post(URL, formData, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    }).then((img) => {
-      setImage(img.data.url);
-      setLoaded(true);
-    }).catch((err) => err);
+    axios
+      .post(URL, formData, {
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      })
+      .then((img) => {
+        setImage(img.data.url);
+        setLoaded(true);
+      })
+      .catch((err) => err);
   };
 
   const removePhoto = () => {
-    setImage('');
+    setImage("");
   };
 
   const onFormSubmit = (e) => {
     e.preventDefault();
     console.log(data);
-    axios.post(`http://localhost:4000/auth/edit/${userId}`, data)
+    axios
+      .post(`http://localhost:4000/api/edit/${userId}`, data)
       .then((res) => {
         console.log(res.data);
       })
@@ -88,19 +88,15 @@ const EditFarmerProfileForm = () => {
     <div id="edit">
       <h2>EDIT MY PROFILE</h2>
       <p>
-        <strong>NOTE</strong>
-        : Values with (
-        <span className="asterik">*</span>
-        ) cannot be changed
+        <strong>NOTE</strong>: Values with (<span className="asterik">*</span>)
+        cannot be changed
       </p>
 
       <form onSubmit={onFormSubmit} className="row">
         <div className="col-8">
           <div className="form-group">
             <label htmlFor="FirstName">
-              First Name
-              {' '}
-              <span className="asterik">*</span>
+              First Name <span className="asterik">*</span>
               <input
                 id="firstName"
                 type="text"
@@ -109,13 +105,10 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
           <div className="form-group">
             <label htmlFor="LastName">
-              Last Name
-              {' '}
-              <span className="asterik">*</span>
+              Last Name <span className="asterik">*</span>
               <input
                 id="lastName"
                 type="text"
@@ -124,13 +117,10 @@ const EditFarmerProfileForm = () => {
                 className="form-control "
               />
             </label>
-
           </div>
           <div className="form-group">
             <label htmlFor="Email">
-              Email
-              {' '}
-              <span className="asterik">*</span>
+              Email <span className="asterik">*</span>
               <input
                 id="email"
                 type="email"
@@ -169,7 +159,6 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
           <div className="form-group ">
             <label htmlFor="Phone Number">
@@ -182,7 +171,6 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
           <div className="form-group">
             <label htmlFor="Address">
@@ -195,7 +183,6 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
           <div className="form-group">
             <label htmlFor="State">
@@ -208,7 +195,6 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
           <div className="form-group">
             <label htmlFor="Country">
@@ -221,32 +207,37 @@ const EditFarmerProfileForm = () => {
                 className="form-control"
               />
             </label>
-
           </div>
         </div>
 
         <div className="col-4">
           <Loader loaded={loaded} className="loader" />
 
-          <button type="button" className="text-center profile-button mb-2 mx-2">
-
-            {image ? <img src={image} alt="" className="img-fluid photo" /> : <i className="bx bxs-user" />}
+          <button
+            type="button"
+            className="text-center profile-button mb-2 mx-2"
+          >
+            {image ? (
+              <img src={image} alt="" className="img-fluid photo" />
+            ) : (
+              <i className="bx bxs-user" />
+            )}
           </button>
-
 
           <label htmlFor="file" className="profile" onChange={onFileChange}>
             Upload Photo
             <input type="file" name="file" id="file" className="inputfile" />
           </label>
-          <button type="button" className="remove-button" onClick={removePhoto}>Remove Photo</button>
-
+          <button type="button" className="remove-button" onClick={removePhoto}>
+            Remove Photo
+          </button>
         </div>
-        <button type="submit" className="btn btn-block">Save</button>
+        <button type="submit" className="btn btn-block">
+          Save
+        </button>
       </form>
-
     </div>
   );
 };
-
 
 export default EditFarmerProfileForm;

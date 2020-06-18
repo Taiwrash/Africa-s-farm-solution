@@ -56,7 +56,7 @@ const SignUpForm = () => {
       password.match(/(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/)
     ) {
       axios
-        .post("http://localhost:4000/auth/signup", data)
+        .post("http://localhost:4000/api/signup", data)
         .then((res) => {
           const tokens = res.data.token;
           const profile = jwtDecode(tokens);

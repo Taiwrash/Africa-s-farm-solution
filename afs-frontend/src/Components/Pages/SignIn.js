@@ -1,18 +1,18 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import axios from 'axios';
-import jwtDecode from 'jwt-decode';
-import useLocalState from '../../utils/sessionstorage';
-import '../../styles/SignUp-In.css';
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import axios from "axios";
+import jwtDecode from "jwt-decode";
+import useLocalState from "../../utils/sessionstorage";
+import "../../styles/SignUp-In.css";
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [farmer, setFarmer] = useState(false);
   const [consumer, setConsumer] = useState(false);
   const [doctor, setDoctor] = useState(false);
-  const [localState, setLocalState] = useLocalState('user-id');
+  const [localState, setLocalState] = useLocalState("user-id");
 
   const data = {
     email,
@@ -24,21 +24,21 @@ const Login = () => {
     handler(value);
   };
 
-
   const onFormSubmit = (e) => {
     e.preventDefault();
     //  BACKEND CALL
-    axios.post('http://localhost:4000/auth/login', data)
+    axios
+      .post("http://localhost:4000/api/login", data)
       .then((res) => {
         const tokens = res.data.token;
         const profile = jwtDecode(tokens);
         setLocalState(JSON.stringify(profile));
         const { role } = res.data;
-        if (role === 'Consumer') {
+        if (role === "Consumer") {
           setConsumer(true);
-        } else if (role === 'Farmer') {
+        } else if (role === "Farmer") {
           setFarmer(true);
-        } else if (role === 'Doctor') {
+        } else if (role === "Doctor") {
           setDoctor(true);
         }
       })
@@ -78,7 +78,9 @@ const Login = () => {
           />
         </div>
         <div className="register-button">
-          <button type="submit" className="auth-button btn-block">Submit</button>
+          <button type="submit" className="auth-button btn-block">
+            Submit
+          </button>
         </div>
       </form>
     </div>
