@@ -6,6 +6,8 @@
   "scripts": {
     "test": "npm run test",
     "start": "node app.js",
+    "server": "nodemon app.js",
+    "afs-frontend": "npm start --prefix afs-frontend",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix afs-frontend && npm run build --prefix afs-frontend"
   },
   "repository": {
@@ -20,9 +22,9 @@
   "author": "Team 044: Mudasiru Rasheed & Jimoh Oluwatosin",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/BuildForSDG/Team-044-Product/issues"
+    "url": "https://github.com/Taiwrash/Africa-s-farm-solution.git/issues"
   },
-  "homepage": "https://github.com/BuildForSDG/Team-044-Product#readme",
+  "homepage": "https://github.com/Taiwrash/Africa-s-farm-solution#readme",
   "dependencies": {
     "axios": "^0.19.2",
     "bcrypt": "^4.0.1",
