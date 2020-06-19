@@ -9,9 +9,9 @@ const services = [
     icon: "bx bxl-dribbble",
   },
   {
-    title: "Investors",
+    title: "Doctors",
     description:
-      "We have set of doctors that are ready to help the less privileges farmers by giving advices on their various farms",
+      "We have set of doctors that are ready to help the less privileges farmers by giving them advices on their various livestocks",
     icon: "bx bx-file",
   },
   {
@@ -30,8 +30,8 @@ const CrossServices = () => (
         <h3>We do offer awesome Services</h3>
         <p>
           Our services includes connecting farmers from various places, getting
-          the investors for registered farmers on our platform and also provide
-          vetenary doctors with storage facilities
+          the certified vetenary doctors for registered farmers on our platform
+          and also provide consumers for the farmers products.
         </p>
       </div>
       <div className="row">

@@ -30,7 +30,7 @@ const SideNavigation = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/api/view/${userId}`)
+      .get(`https://frozen-peak-27970.herokuapp.com/api/view/${userId}`)
       .then((response) => {
         const { data } = response;
         const val = data.data;

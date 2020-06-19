@@ -13,8 +13,8 @@ const Services = () => (
           </h3>
           <p>
             Our services includes connecting farmers from various places,
-            getting the investors for registered farmers on our platform and
-            also provide vetenary doctors with storage facilities
+            getting certified vetenary doctors for registered farmers on our
+            platform and also provide consumers for the farmers products.
           </p>
         </div>
 
@@ -43,7 +43,7 @@ const Services = () => (
               </div>
               <h4 className="title">
                 <Link to="/signup/investors" id="investors">
-                  Investors
+                  Doctors
                 </Link>
               </h4>
               <p className="description">

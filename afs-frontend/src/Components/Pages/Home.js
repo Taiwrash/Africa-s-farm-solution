@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import CrossServices from "../common/CrossServices";
+import Footer from "../common/Footer";
 
 const Home = () => (
   <div>
@@ -24,6 +25,7 @@ const Home = () => (
     </section>
 
     <CrossServices />
+    <Footer />
   </div>
 );
 

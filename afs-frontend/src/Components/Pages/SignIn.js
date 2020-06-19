@@ -28,7 +28,7 @@ const Login = () => {
     e.preventDefault();
     //  BACKEND CALL
     axios
-      .post("http://localhost:4000/api/login", data)
+      .post("https://frozen-peak-27970.herokuapp.com/api/login", data)
       .then((res) => {
         const tokens = res.data.token;
         const profile = jwtDecode(tokens);

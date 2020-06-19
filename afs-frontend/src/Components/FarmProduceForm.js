@@ -63,7 +63,7 @@ const FarmProduceForm = () => {
       setError("Please provide the required information");
     } else {
       axios
-        .post("http://localhost:4000/api/products", data, {
+        .post("https://frozen-peak-27970.herokuapp.com/api/products", data, {
           headers: { "Content-Type": "application/json" },
         })
         .then((res) => {

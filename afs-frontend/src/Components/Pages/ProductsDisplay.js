@@ -11,7 +11,7 @@ const ProductsDisplay = () => {
 
   const [id, setId] = useLocalState("product-id");
 
-  const ENDPOINT = `http://localhost:4000/api/products/${id}`;
+  const ENDPOINT = `https://frozen-peak-27970.herokuapp.com/api/products/${id}`;
 
   useEffect(() => {
     axios

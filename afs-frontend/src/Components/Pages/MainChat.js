@@ -18,7 +18,7 @@ const MainChat = () => {
   const [messages, setMessages] = useState([]);
   const [enter, setEnter] = useState("");
   const [view, setView] = useState(false);
-  const ENDPOINT = "http://localhost:4000";
+  const ENDPOINT = "https://frozen-peak-27970.herokuapp.com";
 
   // User connects
   useEffect(() => {

@@ -72,7 +72,7 @@ const EditDoctorProfileForm = () => {
     e.preventDefault();
     console.log(data);
     axios
-      .post("http://localhost:4000/api", data)
+      .post("https://frozen-peak-27970.herokuapp.com/api", data)
       .then((res) => {
         console.log(res.data);
       })

@@ -13,7 +13,7 @@ const Products = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/products")
+      .get("https://frozen-peak-27970.herokuapp.com/api/products")
       .then((response) => {
         const { data } = response;
         console.log("sdmd", data);

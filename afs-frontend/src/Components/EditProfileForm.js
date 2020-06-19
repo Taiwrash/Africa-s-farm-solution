@@ -75,7 +75,7 @@ const EditFarmerProfileForm = () => {
     e.preventDefault();
     console.log(data);
     axios
-      .post(`http://localhost:4000/api/edit/${userId}`, data)
+      .post(`https://frozen-peak-27970.herokuapp.com/api/edit/${userId}`, data)
       .then((res) => {
         console.log(res.data);
       })
