@@ -73,7 +73,7 @@ exports.login = (req, res, next) => {
           const { role } = user;
           res.status(201).json({
             token,
-            users,
+            user,
           });
         })
         .catch((error) => {
