@@ -4,8 +4,12 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
+import { NotificationContainer } from 'react-notifications'
+
 
 import useLocalState from "../utils/sessionstorage";
+import notification from '../utils/notifications';
+
 
 import "../styles/SignUp-In.css";
 
@@ -16,16 +20,17 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [role, setRole] = useState("");
-  const [warning, setWarning] = useState("");
-  const [error, setError] = useState("");
+  const [pwdWarning, setPwdWarning] = useState("");
+  const [formError, setFormError] = useState("");
   const [farmer, setFarmer] = useState(false);
   const [consumer, setConsumer] = useState(false);
   const [doctor, setDoctor] = useState(false);
+
   const [localState, setLocalState] = useLocalState("user-id");
 
   const data = {
-    firstname,
-    lastname,
+    firstName: firstname,
+    lastName: lastname,
     email,
     password,
     role,
@@ -44,7 +49,7 @@ const SignUpForm = () => {
   const onPasswordChange = (e) => {
     const { value } = e.target;
     setPassword(value);
-    setWarning(
+    setPwdWarning(
       "Your passwword must contain at least 6 characters, including 1 special character & 1 number"
     );
   };
@@ -56,7 +61,8 @@ const SignUpForm = () => {
       password.match(/(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/)
     ) {
       axios
-        .post("https://frozen-peak-27970.herokuapp.com/api/signup", data)
+        // .post("https://frozen-peak-27970.herokuapp.com/api/signup", data)
+      .post("http://localhost:4000/api/signup", data)
         .then((res) => {
           const tokens = res.data.token;
           const profile = jwtDecode(tokens);
@@ -70,16 +76,26 @@ const SignUpForm = () => {
             setDoctor(true);
           }
         })
-        .catch((err) => err);
-      setError("");
+        .catch((err) => {
+          console.log(err)
+          const error = err.message
+          console.log(error)
+          setEmail("")
+          setPassword("")
+          notification('error', error)
+        });
+
+      setFormError("");
     } else {
-      setError(
+      setFormError(
         "Your passwword must contain at least 6 characters, including 1 special character(#,?,!,@,-, etc) & 1 number"
       );
     }
   };
   return (
     <div>
+      <NotificationContainer/>
+
       {consumer ? <Redirect to="dashboard/01" /> : null}
       {farmer ? <Redirect to="/dashboard/00/" /> : null}
       {doctor ? <Redirect to="/dashboard/02" /> : null}
@@ -119,7 +135,7 @@ const SignUpForm = () => {
           />
         </div>
         <div className="form-group">
-          <p>{warning}</p>
+          <p>{pwdWarning}</p>
           <input
             id="password"
             type="password"
@@ -163,7 +179,7 @@ const SignUpForm = () => {
             Register
           </button>
         </div>
-        <p id="error">{error}</p>
+        <p id="error">{formError}</p>
       </form>
     </div>
   );

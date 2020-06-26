@@ -3,6 +3,8 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import io from "socket.io-client";
 import ScrollToBottom from "react-scroll-to-bottom";
+import SideNavigation from '../SideNav';
+
 
 import useLocalState from "../../utils/sessionstorage";
 import "../../styles/MainChat.css";
@@ -58,11 +60,17 @@ const MainChat = () => {
   };
 
   return (
-    <div className="mainchat">
+    <div className="row">
+<div className="col-2 col-lg-4 side">
+<SideNavigation  />
+</div>
+
+<div className="col-10 col-lg-8 my-5 px-0"> 
+<div className="mainchat">
       <div className="chatBox">
         <div className="chat-header">
           <div>
-            <h3>Welcome to AFS Community of Farmers</h3>
+            <h3>AFS Community of Farmers</h3>
             <p>Drop your thoughts, engage with other farmers</p>
           </div>
           <div className="chat-icon">
@@ -88,7 +96,7 @@ const MainChat = () => {
             : null}
         </ScrollToBottom>
 
-        <div className="chat-input">
+        <div className="chat-input text-center">
           <input
             type="text"
             value={msg}
@@ -108,6 +116,9 @@ const MainChat = () => {
           </button>
         </div>
       </div>
+    </div>
+
+</div>
     </div>
   );
 };

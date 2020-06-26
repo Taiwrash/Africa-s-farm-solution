@@ -2,7 +2,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
-const user = require("../models/user");
 
 exports.signup = (req, res, next) => {
   bcrypt
@@ -31,13 +30,13 @@ exports.signup = (req, res, next) => {
         const { role } = user;
         res.status(201).json({
           token,
-          user,
+          role
         });
       });
     })
     .catch((error) => {
-      res.status(500).json({
-        error,
+      res.json({
+        error: "Email has already been used"
       });
     });
 };
@@ -46,16 +45,16 @@ exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
       if (!user) {
-        return res.status(401).json({
-          error: new Error("User not found!"),
+        return res.json({
+          error: "User not found!",
         });
       }
       bcrypt
         .compare(req.body.password, user.password)
         .then((valid) => {
           if (!valid) {
-            return res.status(401).json({
-              error: new Error("Incorrect Password!"),
+            return res.json({
+              error: "Incorrect Password!",
             });
           }
           const token = jwt.sign(
@@ -73,7 +72,7 @@ exports.login = (req, res, next) => {
           const { role } = user;
           res.status(201).json({
             token,
-            user,
+            role
           });
         })
         .catch((error) => {
@@ -89,50 +88,28 @@ exports.login = (req, res, next) => {
     });
 };
 
-// exports.view = (req, res, next) => {
-//   User.findById(req.params.id, (err, getUser) => {
-//     const data = {
-//       firstName: getUser.firstName,
-//       lastName: getUser.lastName,
-//       email: getUser.email
-//     };
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.json({ data });
-//     }
-//   });
-// };
+exports.view = (req, res, next) => {
+  User.findById(req.params.id, (err, getUser) => {
+    const data = {
+      firstName: getUser.firstName,
+      lastName: getUser.lastName,
+      email: getUser.email
+    };
+    if (err) {
+      console.log(err);
+    } else {
+      res.json({ data });
+    }
+  });
+};
 
 exports.edit = (req, res, next) => {
   User.findByIdAndUpdate(req.params.id, req.body, (err, updated) => {
     if (err) {
-      res.status(403).redirect("/notfound");
+      res.send({message: "There was an error updating your profile"});
     } else {
-      res.json(updated);
+      res.json({updated, message: "Your Profile has been updated"});
     }
-    // }).then((user) => {
-    //   if (user) {
-    //     user.firstName = req.body.firstName;
-    //     user.lastName = req.body.lastName;
-    //     user.image = req.body.image;
-    //     user.d_o_b = req.body.dob;
-    //     user.gender = req.body.gender;
-    //     user.mobile_number = req.body.number;
-    //     user.address = req.body.address;
-    //     user.city = req.body.city;
-    //     user.country = req.body.country;
-    //     user.save().then(() => {
-    //       res
-    //         .status(202)
-    //         .json({
-    //           user
-    //         })
-    //         .end();
-    //     });
-    //   } else {
-    //     res.status(403).redirect('/notfound');
-    //   }
   });
 };
 
