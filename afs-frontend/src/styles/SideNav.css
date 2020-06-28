@@ -1,13 +1,29 @@
 .navigation {
   height: 100%;
+  width: 180px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  border-right: 1px solid #E5E5E5; 
+  height: 100%;
   background: gray;
   color: white;
   padding: 4%;
 }
 
+.limk {
+  color: black;
+}
+
 .navigation li {
   display: inline;
   list-style: none;
+}
+
+.mb-navigation {
+  display: none;
 }
 
 .edit-profile-button {
@@ -62,10 +78,10 @@ li {
   align-items: center;
   justify-content: center
 }
-
+/* 
 .bxs-user {
   font-size: 100px;
-}
+} */
 
 .navigation ul {
   padding-inline-start: 0;
@@ -93,3 +109,50 @@ li {
 .edit-button {
   outline: none;
 }
+
+
+
+@media screen and (max-width: 1000px) {
+  .navigation {
+    display: none;
+  }
+
+  .mb-navigation {
+    display: block;
+    margin-top: 10%;
+    height: 100%;
+    /* width: 0; */
+
+    width: 100px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    border-right: 1px solid #E5E5E5;
+    padding: 15% 3%;
+    transition: 0.5s;
+  }
+
+  .mb-navigation i{
+    font-size: 40px;
+  }
+  
+  .mb-navigation button{
+    border: none;
+    background: white
+  }
+  
+
+  #side-nav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+  }
+  .hamburger {
+    display: block;
+    margin: 10px;
+  } 
+ }

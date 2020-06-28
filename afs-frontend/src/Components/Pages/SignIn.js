@@ -3,7 +3,12 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import jwtDecode from "jwt-decode";
+import { NotificationContainer } from 'react-notifications'
+
+import notification from '../../utils/notifications';
 import useLocalState from "../../utils/sessionstorage";
+
+import 'react-notifications/lib/notifications.css'
 import "../../styles/SignUp-In.css";
 
 const Login = () => {
@@ -12,6 +17,7 @@ const Login = () => {
   const [farmer, setFarmer] = useState(false);
   const [consumer, setConsumer] = useState(false);
   const [doctor, setDoctor] = useState(false);
+
   const [localState, setLocalState] = useLocalState("user-id");
 
   const data = {
@@ -28,11 +34,14 @@ const Login = () => {
     e.preventDefault();
     //  BACKEND CALL
     axios
-      .post("https://frozen-peak-27970.herokuapp.com/api/login", data)
+      // .post("https://frozen-peak-27970.herokuapp.com/api/login", data)
+      .post("http://localhost:4000/api/login", data)
       .then((res) => {
         const tokens = res.data.token;
         const profile = jwtDecode(tokens);
         setLocalState(JSON.stringify(profile));
+        setEmail("")
+        setPassword("")
         const { role } = res.data;
         if (role === "Consumer") {
           setConsumer(true);
@@ -41,12 +50,20 @@ const Login = () => {
         } else if (role === "Doctor") {
           setDoctor(true);
         }
+
       })
-      .catch((err) => err);
+      .catch((err) => {
+        const error = err.message
+        setEmail("")
+        setPassword("")
+        notification('error', error)
+      });
   };
 
   return (
     <div className="info">
+      <NotificationContainer/>
+
       {consumer ? <Redirect to="/dashboard/01" /> : null}
       {farmer ? <Redirect to="/dashboard/00" /> : null}
       {doctor ? <Redirect to="/dashboard/02" /> : null}

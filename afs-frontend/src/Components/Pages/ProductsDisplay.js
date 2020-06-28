@@ -18,13 +18,13 @@ const ProductsDisplay = () => {
       .get(ENDPOINT)
       .then((response) => {
         const { data } = response;
-        if (typeof data === "object" && !(data instanceof Array)) {
+        // if (typeof data === "object" && !(data instanceof Array)) {
           setFullData(data);
           setImages(data.image);
-        }
+        // }
       })
       .catch((error) => error.message);
-  }, [ENDPOINT]);
+  }, [ENDPOINT, fullData]);
 
   const handleButton = (img) => {
     setDisplay(img);

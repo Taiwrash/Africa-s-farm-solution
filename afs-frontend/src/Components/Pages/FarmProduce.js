@@ -4,10 +4,10 @@ import SideNavigation from '../SideNav';
 
 const FarmProduce = () => (
   <div className="row order">
-    <div className="col-5 col-lg-3 side">
+    <div className="col-4 col-lg-3 side">
       <SideNavigation />
     </div>
-    <div className="col-7 col-lg-9 main">
+    <div className="col-8 col-lg-9">
       <FarmProduceForm />
     </div>
   </div>

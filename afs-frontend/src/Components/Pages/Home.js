@@ -9,7 +9,7 @@ const Home = () => (
       <div className="hero-container">
         <h3>
           Welcome to
-          <strong>AFRICA FARM SOLUTION</strong>
+          <strong className="ml-2">AFRICA FARM SOLUTION</strong>
         </h3>
 
         <h1>
