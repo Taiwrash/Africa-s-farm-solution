@@ -4,12 +4,10 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import jwtDecode from "jwt-decode";
 import axios from "axios";
-import { NotificationContainer } from 'react-notifications'
-
+import { NotificationContainer } from "react-notifications";
 
 import useLocalState from "../utils/sessionstorage";
-import notification from '../utils/notifications';
-
+import notification from "../utils/notifications";
 
 import "../styles/SignUp-In.css";
 
@@ -61,8 +59,7 @@ const SignUpForm = () => {
       password.match(/(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,}$/)
     ) {
       axios
-        // .post("https://frozen-peak-27970.herokuapp.com/api/signup", data)
-      .post("http://localhost:4000/api/signup", data)
+        .post("https://frozen-peak-27970.herokuapp.com/api/signup", data)
         .then((res) => {
           const tokens = res.data.token;
           const profile = jwtDecode(tokens);
@@ -77,12 +74,12 @@ const SignUpForm = () => {
           }
         })
         .catch((err) => {
-          console.log(err)
-          const error = err.message
-          console.log(error)
-          setEmail("")
-          setPassword("")
-          notification('error', error)
+          console.log(err);
+          const error = err.message;
+          console.log(error);
+          setEmail("");
+          setPassword("");
+          notification("error", error);
         });
 
       setFormError("");
@@ -94,7 +91,7 @@ const SignUpForm = () => {
   };
   return (
     <div>
-      <NotificationContainer/>
+      <NotificationContainer />
 
       {consumer ? <Redirect to="dashboard/01" /> : null}
       {farmer ? <Redirect to="/dashboard/00/" /> : null}
