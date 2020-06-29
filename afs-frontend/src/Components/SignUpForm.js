@@ -60,6 +60,7 @@ const SignUpForm = () => {
     ) {
       axios
         .post("https://frozen-peak-27970.herokuapp.com/api/signup", data)
+        // .post("http://localhost:4000/api/signup", data)
         .then((res) => {
           const tokens = res.data.token;
           const profile = jwtDecode(tokens);
@@ -72,6 +73,7 @@ const SignUpForm = () => {
           } else if (role === "Doctor") {
             setDoctor(true);
           }
+          notification("success", "You are Welcome");
         })
         .catch((err) => {
           console.log(err);
@@ -79,7 +81,7 @@ const SignUpForm = () => {
           console.log(error);
           setEmail("");
           setPassword("");
-          notification("error", error);
+          notification("error", "Email already exist");
         });
 
       setFormError("");

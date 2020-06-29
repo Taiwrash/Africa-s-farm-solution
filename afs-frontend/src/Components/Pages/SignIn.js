@@ -35,7 +35,7 @@ const Login = () => {
     //  BACKEND CALL
     axios
       .post("https://frozen-peak-27970.herokuapp.com/api/login", data)
-
+      // .post("http://localhost:4000/api/login", data)
       .then((res) => {
         const tokens = res.data.token;
         const profile = jwtDecode(tokens);
@@ -53,9 +53,10 @@ const Login = () => {
       })
       .catch((err) => {
         const error = err.message;
+
         setEmail("");
         setPassword("");
-        notification("error", error);
+        notification("error", "Invalid username or/ password");
       });
   };
 
