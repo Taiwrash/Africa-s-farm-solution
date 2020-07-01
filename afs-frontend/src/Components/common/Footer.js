@@ -47,10 +47,10 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="column">
+        {/* <div className="column">
           <p className="title">Social Media</p>
           <hr />
-          {/* <div className="social">
+          <div className="social">
             <Link to="https://facebook.com/buildforsdgteam044">
               <img className="icons" src="img/icons/fb.svg" alt="facebook" />
             </Link>
@@ -60,8 +60,8 @@ const Footer = () => {
             <Link to="https://linkedin.com/buildforsdgteam044">
               <img className="icons" src="img/icons/ln.svg" alt="linkedIn" />
             </Link>
-          </div> */}
-        </div>
+          </div>
+        </div> */}
       </footer>
     </div>
   );

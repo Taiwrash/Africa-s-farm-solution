@@ -9,6 +9,8 @@ dotenv.config();
 // CLOUDINARY DETAILS
 const URL = process.env.REACT_APP_CLOUDINARY_URL;
 const UPLOAD_PRESET = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
+console.log(URL);
+console.log(UPLOAD_PRESET);
 
 const FarmProduceForm = () => {
   const [name, setName] = useState("");
@@ -44,6 +46,7 @@ const FarmProduceForm = () => {
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", UPLOAD_PRESET);
+    console.log(URL);
 
     axios
       .post(URL, formData, {
@@ -51,6 +54,8 @@ const FarmProduceForm = () => {
       })
       .then((img) => {
         setImage(img.data.url);
+        console.log(img.data.url);
+        console.log(img);
       })
       .catch((err) => err);
   };
@@ -66,6 +71,9 @@ const FarmProduceForm = () => {
         .post("https://frozen-peak-27970.herokuapp.com/api/products", data, {
           headers: { "Content-Type": "application/json" },
         })
+        // .post("http://localhost:4000/api/products", data, {
+        //   headers: { "Content-Type": "application/json" },
+        // })
         .then((res) => {
           console.log("data-->>>", res.data);
         })

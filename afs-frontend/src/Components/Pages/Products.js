@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Loader from "react-loader";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 import "../../styles/Products.css";
 
@@ -14,6 +15,7 @@ const Products = () => {
   useEffect(() => {
     axios
       .get("https://frozen-peak-27970.herokuapp.com/api/products")
+      // .get("http://localhost:4000/api/products")
       .then((response) => {
         const { data } = response;
         console.log("sdmd", data);
@@ -42,10 +44,21 @@ const Products = () => {
                     alt="A product"
                   />
                 </div>
-                <div className="grid">
-                  <p>{name}</p>
-                  <p>{price}</p>
-                </div>
+                <Link
+                  to={`/checkout/${_id}`}
+                  onClick={() => {
+                    setId(_id);
+                    setLinkId(true);
+                  }}
+                >
+                  <div>
+                    <img className="img-fluid" src={image[0]} alt="A product" />
+                  </div>
+                  <div className="grid">
+                    <p>{name}</p>
+                    <p>{price}</p>
+                  </div>
+                </Link>
               </div>
             ))}
           </div>
