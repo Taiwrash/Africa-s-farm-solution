@@ -41,7 +41,7 @@ const [userData, setUserData] = useState([])
       .catch((error) => {
         console.log("error ---->>>", error.message);
       });
-  }, [userId]);
+  }, [userId, userData]);
 
 
   // useEffect(() => {
@@ -52,17 +52,14 @@ const [userData, setUserData] = useState([])
 
 
   return (
-    <div>
-      <div className="row my-5">
-        <div className="col-5 col-lg-3 side">
+    <div className="full"> 
           <SideNavigation 
             email={userData.email}
             firstName={userData.firstName}
             lastName={userData.lastName}
 
           />
-        </div>
-        <div className="col-7 col-lg-9 my-5">
+        <div className="content">
           <h2>
             Welcome
             {' '}
@@ -71,7 +68,6 @@ const [userData, setUserData] = useState([])
           <WeatherApp />
         </div>
       </div>
-    </div>
   );
 };
 export default FarmerDashboard;

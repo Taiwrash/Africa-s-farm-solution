@@ -1,20 +1,25 @@
-.center {
+/* .center {
   width: 80%;
   margin: 10% auto;
 }
 
-.row {
+{
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-}
+} */
 
 .card {
+  width: 15 rem;
+  /* justify-content: center; */
+}
+
+.we {
   width: 18rem;
 
 }
 
-.product-loader {
+/* .product-loader {
   position: fixed;
   top: 0;
   right: 0;
@@ -45,6 +50,11 @@
 
 .left {
   display: inline-grid;
+} */
+
+.card-body {
+  display: flex;
+  justify-content: space-between;
 }
 
 /* @media (min-width: 320px) and (max-width: 700px) {

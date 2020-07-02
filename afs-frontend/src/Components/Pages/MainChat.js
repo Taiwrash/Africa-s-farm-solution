@@ -60,13 +60,10 @@ const MainChat = () => {
   };
 
   return (
-    <div className="row">
-<div className="col-2 col-lg-4 side">
+    <div className="full">
 <SideNavigation  />
-</div>
 
-<div className="col-10 col-lg-8 my-5 px-0"> 
-<div className="mainchat">
+<div className="mainchat content">
       <div className="chatBox">
         <div className="chat-header">
           <div>
@@ -119,7 +116,6 @@ const MainChat = () => {
     </div>
 
 </div>
-    </div>
   );
 };
 

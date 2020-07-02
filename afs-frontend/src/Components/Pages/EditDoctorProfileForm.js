@@ -4,6 +4,11 @@ import axios from "axios";
 import dotenv from "dotenv";
 import Loader from "react-loader";
 import useLocalState from "../../utils/sessionstorage";
+import notification from '../../utils/notifications';
+
+
+import 'react-notifications/lib/notifications.css'
+
 // import '../styles/Dashboard.css';
 // import '../styles/EditProfile.css';
 
@@ -74,7 +79,8 @@ const EditDoctorProfileForm = () => {
     axios
       .post("https://frozen-peak-27970.herokuapp.com/api", data)
       .then((res) => {
-        console.log(res.data);
+        const  data  = res.data.message;
+        notification('success', data)
       })
       .catch((err) => {
         console.log(err);

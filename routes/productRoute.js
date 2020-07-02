@@ -30,7 +30,7 @@ router.post('/products', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      res.send(newlyCreatedProduce);
+      res.json({newlyCreatedProduce, message: "Your Produce has been added"});
     }
   });
 });

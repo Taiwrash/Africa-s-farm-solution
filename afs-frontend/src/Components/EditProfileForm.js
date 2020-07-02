@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import dotenv from "dotenv";
 import Loader from "react-loader";
-import { NotificationContainer, NotificationManager } from 'react-notifications'
+import { NotificationContainer } from 'react-notifications'
 
 import useLocalState from "../utils/sessionstorage";
 import notification from '../utils/notifications';
