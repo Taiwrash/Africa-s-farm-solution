@@ -30,13 +30,13 @@ exports.signup = (req, res, next) => {
         const { role } = user;
         res.status(201).json({
           token,
-          role
+          role,
         });
       });
     })
     .catch((error) => {
       res.json({
-        error: "Email has already been used"
+        error: "Email has already been used",
       });
     });
 };
@@ -72,18 +72,18 @@ exports.login = (req, res, next) => {
           const { role } = user;
           res.status(201).json({
             token,
-            role
+            role,
           });
         })
         .catch((error) => {
           res.status(500).json({
-            error,
+            error: "Input correct credentials!",
           });
         });
     })
     .catch((error) => {
       res.status(500).json({
-        error,
+        error: "You must have correct login details or sign up otherwise!",
       });
     });
 };
@@ -93,7 +93,7 @@ exports.view = (req, res, next) => {
     const data = {
       firstName: getUser.firstName,
       lastName: getUser.lastName,
-      email: getUser.email
+      email: getUser.email,
     };
     if (err) {
       console.log(err);
@@ -106,9 +106,9 @@ exports.view = (req, res, next) => {
 exports.edit = (req, res, next) => {
   User.findByIdAndUpdate(req.params.id, req.body, (err, updated) => {
     if (err) {
-      res.send({message: "There was an error updating your profile"});
+      res.send({ message: "There was an error updating your profile" });
     } else {
-      res.json({updated, message: "Your Profile has been updated"});
+      res.json({ updated, message: "Your Profile has been updated" });
     }
   });
 };

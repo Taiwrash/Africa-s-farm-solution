@@ -3,16 +3,16 @@ import React, { useState } from "react";
 import axios from "axios";
 import dotenv from "dotenv";
 import Loader from "react-loader";
+
 import { NotificationContainer } from 'react-notifications'
 
 import useLocalState from "../utils/sessionstorage";
-import notification from '../utils/notifications';
+import notification from "../utils/notifications";
 
 // import '../styles/Dashboard.css';
-import 'react-notifications/lib/notifications.css'
+import "react-notifications/lib/notifications.css";
 
 import "../styles/EditProfile.css";
-
 
 dotenv.config();
 
@@ -40,7 +40,7 @@ const EditFarmerProfileForm = () => {
   const [error, setError] = useState(false);
   const [warning, setWarning] = useState(false);
   const [info, setInfo] = useState(false);
-  const [success, setSuccess] = useState(false)
+  const [success, setSuccess] = useState(false);
   const data = {
     image,
     gender,
@@ -77,7 +77,7 @@ const EditFarmerProfileForm = () => {
       .catch((err) => err);
   };
 
-console.log('now', image)
+  console.log("now", image);
 
   const removePhoto = () => {
     setImage("");
@@ -86,21 +86,21 @@ console.log('now', image)
   const onFormSubmit = (e) => {
     e.preventDefault();
     axios
-      // .post(`https://frozen-peak-27970.herokuapp.com/api/edit/${userId}`, data)
-      .post(`http://localhost:4000/api/edit/${userId}`, data)
+      .post(`https://frozen-peak-27970.herokuapp.com/api/edit/${userId}`, data)
+
       .then((res) => {
-        const  data  = res.data.message;
-        notification('success', data)
+        const data = res.data.message;
+        notification("success", data);
       })
       .catch((err) => {
-        const error = err.message
-        notification('error',error)
+        const error = err.message;
+        notification("error", error);
       });
   };
 
   return (
     <div id="edit">
-      <NotificationContainer/>
+      <NotificationContainer />
 
       <h2>EDIT MY PROFILE</h2>
       <p>
