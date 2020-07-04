@@ -46,57 +46,6 @@ console.log('mee', email, firstName, lastName)
 
   return (
     <div>
-    <div className="navigation">
-      <h2>Gone</h2>
-      <button type="button" className="text-center edit-profile-button my-3">
-        {image ? (
-          <img src={image} alt="User" className="img-fluid photo" />
-        ) : (
-          <i className="bx bxs-user" />
-        )}
-      </button>
-      <button type="button" onClick={openModal} className="edit-button">
-        <li>
-          {" "}
-          <i className="bx bxs-edit-alt" />
-          <span>Edit Profile</span>
-        </li>
-      </button>
-      <hr />
-      <Link
-        to={`/dashboard/00/${localState.userId}/products/add`}
-        className="edit-button"
-      >
-        <li>
-          {" "}
-          <i className="bx bxs-edit-alt" />
-          <span>Add Products</span>
-        </li>
-      </Link>
-      <hr />
-      <Link to="/dashboard/00/chat" className="edit-button">
-        <li>
-          <i className="bx bxs-chat" /> <span>Chat</span>
-        </li>
-      </Link>
-
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={closeModal}
-        contentLabel="Profile Modal"
-        className="Modal"
-        overlayClassName="Overlay"
-      >
-        <button onClick={closeModal} className="close-button" type="button">
-          <i className="bx bxs-x-square" />
-        </button>
-        <div>
-          <EditProfileForm />
-        </div>
-      </Modal>
-    </div>
-
-
 
 <div className="mb-navigation text-center">
 

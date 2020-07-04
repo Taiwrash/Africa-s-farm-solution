@@ -3,13 +3,11 @@ import FarmProduceForm from '../FarmProduceForm';
 import SideNavigation from '../SideNav';
 
 const FarmProduce = () => (
-  <div className="row order">
-    <div className="col-4 col-lg-3 side">
+  <div className="full">
       <SideNavigation />
-    </div>
-    <div className="col-8 col-lg-9">
+      <div className="content">
       <FarmProduceForm />
-    </div>
+      </div>
   </div>
 );
 

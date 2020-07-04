@@ -40,7 +40,7 @@ const FarmerDashboard = () => {
       .catch((error) => {
         console.log("error ---->>>", error.message);
       });
-  }, [userId]);
+  }, [userId, userData]);
 
   // useEffect(() => {
   //   if (!isEqual(text, prevText)) {
@@ -49,21 +49,29 @@ const FarmerDashboard = () => {
   // }, [userData, prevText]);
 
   return (
-    <div>
-      <div className="row my-5">
-        <div className="col-5 col-lg-3 side">
+
+    <div className="full"> 
           <SideNavigation
             email={userData.email}
             firstName={userData.firstName}
             lastName={userData.lastName}
           />
+
+        <div className="content">
+          <h2>
+            Welcome
+            {' '}
+            {`${localState.firstName} ${localState.lastName}`}
+          </h2>
+
         </div>
         <div className="col-7 col-lg-9 my-5">
           <h2>Welcome {`${localState.firstName} ${localState.lastName}`}</h2>
+
+
           <WeatherApp />
         </div>
       </div>
-    </div>
   );
 };
 export default FarmerDashboard;

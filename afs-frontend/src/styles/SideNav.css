@@ -1,4 +1,4 @@
-.navigation {
+/* .navigation {
   height: 100%;
   width: 180px;
   position: fixed;
@@ -11,7 +11,7 @@
   background: gray;
   color: white;
   padding: 4%;
-}
+} */
 
 .limk {
   color: black;
@@ -22,9 +22,9 @@
   list-style: none;
 }
 
-.mb-navigation {
+/* .mb-navigation {
   display: none;
-}
+} */
 
 .edit-profile-button {
   height: 40vh;
@@ -110,28 +110,15 @@ li {
   outline: none;
 }
 
-
-
-@media screen and (max-width: 1000px) {
-  .navigation {
-    display: none;
-  }
-
   .mb-navigation {
-    display: block;
-    margin-top: 10%;
-    height: 100%;
-    /* width: 0; */
-
-    width: 100px;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    border-right: 1px solid #E5E5E5;
-    padding: 15% 3%;
-    transition: 0.5s;
+      height: 100%;
+      width: 180px;
+      position: fixed;
+      z-index: 1;
+      top: 70px;
+      left: 0;
+      overflow-x: hidden;
+      border-right: 1px solid #E5E5E5;
   }
 
   .mb-navigation i{
@@ -151,8 +138,9 @@ li {
     font-size: 36px;
     margin-left: 50px;
   }
+
   .hamburger {
     display: block;
     margin: 10px;
   } 
- }
+ 
