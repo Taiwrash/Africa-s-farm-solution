@@ -14,7 +14,7 @@
   left: 10px;
 }
 
-.social {
+/* .social {
   position: relative;
   left: 40%;
   display: flex;
@@ -22,7 +22,7 @@
 
 .social a {
   margin: 10px;
-}
+} */
 .footer-container > div {
   padding: 25px;
 }
@@ -63,9 +63,9 @@ a:hover {
   text-align: left;
 }
 
-p.phone {
+/* p.phone {
   padding-top: 10px;
-}
+} */
 
 img.icons {
   padding-top: 12px;
@@ -87,10 +87,10 @@ img.icons {
     width: 100%;
   }
 
-  .footer-container .location a:last-of-type {
+  /* .footer-container .location a:last-of-type {
     display: block;
     margin-top: 5px;
-  }
+  } */
 
   .footer-container img {
     width: 10%;

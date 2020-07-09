@@ -26,8 +26,6 @@ const Products = () => {
       });
   }, []);
 
-  console.log(fullData, "yfm,de");
-
   return (
     <div className="my-5 py-5" id="product-wrapper">
       <div className="container">
@@ -120,32 +118,3 @@ const Products = () => {
 };
 
 export default Products;
-
-{
-  /* // <div className="main-wrapper">
-//       {loaded ? (
-//         <div className="center">
-//           <div className="row">
-//             {fullData.map(({ image, name, price, _id }) => (
-//               <div key={_id} className="col-6 col-lg-3 py-4 px-2.5">
-//                 <div>
-//                   <img
-//                     id="pr-image"
-//                     className="img-fluid"
-//                     src={image[0]}
-//                     alt="A product"
-//                   />
-//                 </div>
-//                 <div className="grid">
-//                   <p>{name}</p>
-//                   <p>{price}</p>
-//                 </div>
-//               </div>
-//             ))}
-//           </div>
-//         </div>
-//       ) : (
-//         <Loader loaded={loaded} className="product-loader" />
-//       )}
-//     </div> */
-}

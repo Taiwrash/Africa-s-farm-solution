@@ -47,7 +47,7 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="column">
+        {/* <div className="column">
           <p className="title">Social Media</p>
           <hr />
           <div className="social">
@@ -61,7 +61,7 @@ const Footer = () => {
               <img className="icons" src="img/icons/ln.svg" alt="linkedIn" />
             </Link>
           </div>
-        </div>
+        </div> */}
       </footer>
     </div>
   );
