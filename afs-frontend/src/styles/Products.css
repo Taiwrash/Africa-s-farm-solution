@@ -14,9 +14,11 @@
   /* justify-content: center; */
 }
 
+a {
+  color: #545754;
+}
 .we {
   width: 18rem;
-
 }
 
 /* .product-loader {
@@ -114,4 +116,3 @@
 #pr-image {
   height: 18rem;
 }
-
