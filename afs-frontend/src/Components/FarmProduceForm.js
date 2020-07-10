@@ -2,13 +2,13 @@
 import React, { useState } from "react";
 import axios from "axios";
 import dotenv from "dotenv";
-import { NotificationContainer } from 'react-notifications'
+import { NotificationContainer } from "react-notifications";
 
-import useLocalState from "../utils/sessionstorage"
-import notification from '../utils/notifications';
+import useLocalState from "../utils/sessionstorage";
+import notification from "../utils/notifications";
 import "../styles/Dashboard.css";
 
-import '../styles/SignUp-In.css'
+import "../styles/SignUp-In.css";
 dotenv.config();
 
 // CLOUDINARY DETAILS
@@ -16,7 +16,6 @@ const URL = process.env.REACT_APP_CLOUDINARY_URL;
 const UPLOAD_PRESET = process.env.REACT_APP_CLOUDINARY_UPLOAD_PRESET;
 console.log(URL);
 console.log(UPLOAD_PRESET);
-
 
 const FarmProduceForm = () => {
   const [localState, setLocalState] = useLocalState("user-id");
@@ -76,18 +75,15 @@ const FarmProduceForm = () => {
       setError("Please provide the required information");
     } else {
       axios
-      
-
-      // .post('http://localhost:4000/api/products/', data, {
-      .post('http://localhost:4000/api/products/', data, {
+        .post("https://frozen-peak-27970.herokuapp.com/api/products", data, {
           headers: { "Content-Type": "application/json" },
         })
         // .post("http://localhost:4000/api/products", data, {
         //   headers: { "Content-Type": "application/json" },
         // })
         .then((res) => {
-          const  data  = res.data.message;
-          notification('success', data)
+          const data = res.data.message;
+          notification("success", data);
         })
         .catch((err) => {
           console.log("error ---->>>", err.message);
@@ -96,7 +92,7 @@ const FarmProduceForm = () => {
   };
   return (
     <div className="info">
-      <NotificationContainer/>
+      <NotificationContainer />
       <h2 className="text-center">Add your Farm produce</h2>
 
       {error && <p>{error}</p>}
